@@ -40,6 +40,11 @@ app.get("/", (req, res) => {
   }
 });
 
+// POST /login
+// 實作簡單的登入流程
+// Tips: 可以用下面的方式來做簡單測試
+console.log(getUserPsw('andy')); // 會得到密碼 1234562
+
 app.post("/login", (req, res) => {
   const { userName, psw } = req.body;
   // 先記錄誰來過

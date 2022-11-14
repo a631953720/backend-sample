@@ -44,7 +44,7 @@ document.body.onload = () => {
 
   const testBtn = document.getElementById("test-btn");
   testBtn.addEventListener("click", async () => {
-    const response = await callAPI("http://127.0.0.1:4567/", {
+    const response = await callAPI("http://127.0.0.1:4567", {
       method: "GET",
     });
     const responseBlock = document.getElementById("response-block");

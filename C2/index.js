@@ -5,7 +5,14 @@ const app = express();
 const port = 4567;
 
 app.use(express.json());
-// read update delete...
+
+// GET 
+
+// POST
+
+// PUT
+
+// DELETE
 
 app.listen(port, () => {
   console.log(`server listen at port: ${port}`);
