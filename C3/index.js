@@ -28,6 +28,7 @@ app.use(
   })
 );
 
+// 最後用來簡單驗證cookie是否有用的
 app.get("/", (req, res) => {
   const sessionID = req.sessionID;
   const { user, isLogin } = req.session;
@@ -44,24 +45,6 @@ app.get("/", (req, res) => {
 // 實作簡單的登入流程
 // Tips: 可以用下面的方式來做簡單測試
 console.log(getUserPsw('andy')); // 會得到密碼 1234562
-
-app.post("/login", (req, res) => {
-  const { userName, psw } = req.body;
-  // 先記錄誰來過
-  req.session.user = userName;
-  const queryPsw = getUserPsw(userName);
-  if (!queryPsw) {
-    return res.status(404).json({ message: "沒這個用戶" });
-  }
-  if (psw === getUserPsw(userName)) {
-    // 寫入資料到session store內
-    req.session.isLogin = true;
-    return res.status(200).json({ message: "登入成功" });
-  } else {
-    req.session.isLogin = false;
-    return res.status(401).json({ message: "資料怪怪der" });
-  }
-});
 
 app.listen(port, () => {
   console.log(`server listen at port: ${port}`);
