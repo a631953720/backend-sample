@@ -1,5 +1,5 @@
 const express = require("express");
-const { updateData } = require("../lib/data");
+const { createOrUpdateData } = require("../lib/data");
 const { getUserPsw } = require("../lib/user");
 
 const app = express();
@@ -13,7 +13,7 @@ app.put('/data', (req, res) => {
   const { userName, psw, key, value } = req.body;
   
   if (psw === getUserPsw(userName)) {
-    const result = updateData(key, value);
+    const result = createOrUpdateData(key, value);
     if (result) return res.status(200).send('ok');
     else return res.status(500).send('error');
   }

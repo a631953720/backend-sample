@@ -1,5 +1,5 @@
 const express = require("express");
-const { getAllData, getDataByKey, updateData, deleteData } = require("../lib/data");
+const { getAllData, getDataByKey, createOrUpdateData, deleteData } = require("../lib/data");
 
 const app = express();
 const port = 4567;
@@ -13,5 +13,5 @@ app.listen(port, () => {
 
 console.log(getAllData());
 console.log(deleteData('aaa'));
-console.log(updateData('aaa', 456));
+console.log(createOrUpdateData('aaa', 456));
 console.log(getDataByKey('aaa'));
